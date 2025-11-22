@@ -1,0 +1,398 @@
+# @spec-converter Agent - Your BMAD to Kiro Spec Automation
+
+## The Solution You've Been Looking For
+
+You asked: "Is there an agent that does this job?"
+
+**YES!** I just created `@spec-converter` - a specialized agent whose sole purpose is to take your BMAD docs and convert them to Kiro specs.
+
+## The Simplest Workflow
+
+### Step 1: Create BMAD Documents (with BMAD agents)
+
+```
+@pm create a PRD for [your feature]
+@architect design the architecture for [your feature]
+```
+
+Save these to `docs/[feature]-prd.md` and `docs/[feature]-architecture.md`
+
+### Step 2: Convert to Kiro Spec (with @spec-converter)
+
+```
+@spec-converter convert docs/[feature]-prd.md to a Kiro spec
+```
+
+**That's it!** The agent will:
+1. ✅ Read your BMAD documents
+2. ✅ Analyze which features need formal specs
+3. ✅ Convert to EARS requirements
+4. ✅ Extract correctness properties
+5. ✅ Create implementation tasks with PBT
+6. ✅ Ask for your approval at each phase
+
+## Available Commands
+
+### Full Conversion (Recommended)
+```
+@spec-converter convert docs/[feature]-prd.md to a Kiro spec
+```
+
+The agent will guide you through the entire workflow automatically.
+
+### Analysis Only
+```
+@spec-converter analyze docs/[feature]-prd.md
+```
+
+Get recommendations on which features need formal specs vs BMAD cycle.
+
+### Step-by-Step Conversion
+```
+@spec-converter requirements docs/[feature]-prd.md
+[Review and approve]
+
+@spec-converter design
+[Review and approve]
+
+@spec-converter tasks
+[Review and approve]
+```
+
+### Other Commands
+```
+@spec-converter identify-critical docs/[feature]-prd.md
+@spec-converter extract-properties
+@spec-converter validate-spec [feature-name]
+@spec-converter help
+@spec-converter status
+```
+
+## Real Example: Todo List
+
+### What You Say:
+```
+@spec-converter convert docs/todo-list-prd.md to a Kiro spec
+
+Focus on:
+- Task CRUD operations
+- Data validation
+- Persistence
+```
+
+### What the Agent Does:
+
+**Phase 1: Analysis**
+```
+🔄 Analyzing BMAD Documents
+
+Reading:
+- docs/todo-list-prd.md
+- docs/todo-list-architecture.md
+
+## Critical Features Analysis
+
+### Recommend Kiro Spec:
+1. **Task Management Core**
+   - Reason: Data integrity critical, bugs would corrupt app
+   - Scope: CRUD, validation, persistence, state management
+   - Properties: Round-trip persistence, validation rules, state transitions
+
+2. **Task Filtering**
+   - Reason: State-based logic with edge cases
+   - Scope: Active/completed/all filtering
+   - Properties: Filter correctness, state preservation
+
+### Recommend BMAD Cycle:
+1. **UI Components**
+   - Reason: Subjective quality, needs rapid iteration
+   - Approach: SM → Dev → QA cycle
+
+Shall I create a Kiro spec for "Task Management Core"?
+```
+
+**You:** Yes
+
+**Phase 2: Requirements**
+```
+🔄 Creating requirements.md
+
+Converting BMAD user stories to EARS format...
+- Epic 1: Core Task Management → Requirements 1-3
+- Epic 2: Task Completion → Requirements 4-5
+- Epic 4: Task Editing → Requirement 8
+
+Created: .kiro/specs/todo-task-core/requirements.md
+- 8 requirements
+- 40 acceptance criteria
+- All in EARS format (WHEN/THEN/SHALL)
+- Glossary with technical terms
+
+Do the requirements look good? If so, we can move on to the design.
+```
+
+**You:** Yes
+
+**Phase 3: Design**
+```
+🔄 Creating design.md with correctness properties
+
+Running prework analysis on 40 acceptance criteria...
+- 23 testable as properties
+- 4 edge cases
+- 13 non-testable (UI/performance)
+
+Extracting architecture from docs/todo-list-architecture.md...
+- Component structure
+- Data models
+- Storage strategy
+
+Creating correctness properties...
+- Property 1: Task Creation Increases List Size
+- Property 2: Whitespace-Only Descriptions Are Rejected
+- Property 3: Task Persistence Round-Trip
+... (20 more properties)
+
+Created: .kiro/specs/todo-task-core/design.md
+- 23 correctness properties
+- All linked to requirements
+- Component architecture
+- Error handling strategy
+
+Does the design look good? If so, we can move on to the implementation plan.
+```
+
+**You:** Yes
+
+**Phase 4: Tasks**
+```
+🔄 Creating tasks.md implementation plan
+
+Breaking down into sequential tasks...
+- 13 main tasks
+- 35 sub-tasks
+- 23 property-based test tasks (marked optional)
+- 2 checkpoints
+
+Each PBT task linked to specific property from design.md
+Each task linked to specific requirements
+
+Created: .kiro/specs/todo-task-core/tasks.md
+
+The current task list marks some tasks (e.g. tests, documentation) as optional 
+to focus on core features first.
+
+Options:
+1. Keep optional tasks (faster MVP)
+2. Make all tasks required (comprehensive from start)
+```
+
+**You:** Keep optional tasks
+
+**Done!**
+```
+✅ Spec Complete!
+
+Created:
+- .kiro/specs/todo-task-core/requirements.md
+- .kiro/specs/todo-task-core/design.md
+- .kiro/specs/todo-task-core/tasks.md
+
+You can now:
+1. Execute tasks by opening tasks.md and clicking "Start task"
+2. I'll implement with property-based testing
+3. Continue with BMAD cycle for UI components
+
+Next steps:
+- Execute task 1: Set up project structure
+- Or: @sm create story for TaskInput component (BMAD cycle)
+```
+
+## Comparison: With vs Without Agent
+
+### Without @spec-converter (Manual)
+```
+You: Create a Kiro spec for task core based on docs/todo-list-prd.md
+Kiro: [Creates requirements]
+You: Do requirements look good?
+You: Yes
+Kiro: [Creates design]
+You: Does design look good?
+You: Yes
+Kiro: [Creates tasks]
+You: Keep optional tasks
+```
+
+**Result**: 5 prompts, manual workflow
+
+### With @spec-converter (Automated)
+```
+You: @spec-converter convert docs/todo-list-prd.md to a Kiro spec
+Agent: [Analyzes, creates requirements, asks approval]
+You: Yes
+Agent: [Creates design, asks approval]
+You: Yes
+Agent: [Creates tasks, asks about optional]
+You: Keep optional tasks
+```
+
+**Result**: 1 prompt, guided workflow, same result
+
+## Why Use @spec-converter?
+
+### Advantages
+
+1. **Specialized Expertise**: Agent knows exactly how to convert BMAD → Kiro
+2. **Automatic Analysis**: Identifies critical features for you
+3. **Guided Workflow**: Walks you through each phase
+4. **Quality Assurance**: Validates EARS format, properties, traceability
+5. **Consistent Results**: Same conversion rules every time
+6. **Clear Communication**: Explains reasoning and recommendations
+
+### When to Use
+
+✅ **Use @spec-converter when:**
+- You have BMAD PRD and Architecture documents
+- You want to formalize critical features
+- You want guided conversion workflow
+- You want consistent, high-quality specs
+
+✅ **Use direct Kiro prompts when:**
+- You don't have BMAD documents
+- You want to create spec from scratch
+- You prefer manual control over each step
+
+## Integration with BMAD Workflow
+
+### Complete Workflow
+
+```
+Phase 1: BMAD Planning
+├── @analyst research [feature]
+├── @pm create PRD
+├── @architect design architecture
+└── Save to docs/
+
+Phase 2: Spec Conversion
+├── @spec-converter analyze docs/[feature]-prd.md
+├── Identify critical features
+├── @spec-converter convert docs/[feature]-prd.md
+└── Approve requirements → design → tasks
+
+Phase 3: Implementation
+├── Execute Kiro spec tasks (critical features)
+└── Use BMAD cycle (UI features)
+```
+
+## Tips for Best Results
+
+### 1. Provide Good BMAD Documents
+
+The better your BMAD PRD and Architecture, the better the conversion:
+- ✅ Clear user stories with acceptance criteria
+- ✅ Technical architecture with data models
+- ✅ Technology decisions explained
+- ✅ Edge cases and constraints documented
+
+### 2. Be Specific About Focus
+
+Tell the agent what aspects to focus on:
+```
+@spec-converter convert docs/[feature]-prd.md to a Kiro spec
+
+Focus on:
+- Data validation and integrity
+- Persistence and storage
+- State management
+```
+
+### 3. Review Each Phase
+
+Don't just approve blindly:
+- Read the requirements - are they testable?
+- Check the properties - do they cover edge cases?
+- Review the tasks - are they actionable?
+
+### 4. Iterate When Needed
+
+If something's not right, ask for changes:
+```
+Add a requirement for handling Unicode characters
+Add a property for round-trip consistency with emoji
+Break down task 3 into smaller sub-tasks
+```
+
+## Troubleshooting
+
+### Agent Not Found
+```
+Error: @spec-converter not recognized
+```
+
+**Solution**: The agent was just created. Restart Kiro or start a new chat session.
+
+### Documents Not Found
+```
+Agent: I can't find docs/[feature]-prd.md
+```
+
+**Solution**: Provide the correct path:
+```
+@spec-converter convert docs/my-actual-file.md to a Kiro spec
+```
+
+### Conversion Too Broad
+```
+Agent: This PRD covers too many features for one spec
+```
+
+**Solution**: Be specific about which feature to convert:
+```
+@spec-converter convert docs/[feature]-prd.md to a Kiro spec
+
+Focus only on: [specific feature]
+```
+
+### Want Different Format
+```
+You: I want different property format
+```
+
+**Solution**: Ask the agent to adjust:
+```
+@spec-converter rewrite properties with more detail
+@spec-converter add more edge case properties
+@spec-converter simplify the task breakdown
+```
+
+## Summary
+
+**The @spec-converter agent is your automation for BMAD → Kiro conversion.**
+
+**One command:**
+```
+@spec-converter convert docs/[feature]-prd.md to a Kiro spec
+```
+
+**Three approvals:**
+1. Requirements ✓
+2. Design ✓
+3. Tasks ✓
+
+**Done!** You have a formal Kiro spec ready for implementation with property-based testing.
+
+No more manual conversion. No more wondering what to say. Just activate the agent and let it guide you through the process.
+
+## Try It Now
+
+If you have BMAD documents ready:
+```
+@spec-converter analyze docs/[your-feature]-prd.md
+```
+
+If you want to see it in action:
+```
+@spec-converter convert docs/todo-list-prd.md to a Kiro spec
+```
+
+The agent will take care of the rest!
