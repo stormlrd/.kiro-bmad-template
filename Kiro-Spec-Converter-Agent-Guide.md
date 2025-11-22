@@ -1,10 +1,10 @@
-# @spec-converter Agent - Your BMAD to Kiro Spec Automation
+# @kiro-spec-converter Agent - Your BMAD to Kiro Spec Automation
 
 ## The Solution You've Been Looking For
 
 You asked: "Is there an agent that does this job?"
 
-**YES!** I just created `@spec-converter` - a specialized agent whose sole purpose is to take your BMAD docs and convert them to Kiro specs.
+**YES!** I just created `@kiro-spec-converter` - a specialized agent whose sole purpose is to take your BMAD docs and convert them to Kiro specs.
 
 ## The Simplest Workflows
 
@@ -21,10 +21,10 @@ You asked: "Is there an agent that does this job?"
 
 Save these to `docs/[project]-prd.md` and `docs/[project]-architecture.md`
 
-#### Step 2: Convert to Multiple Kiro Specs (with @spec-converter)
+#### Step 2: Convert to Multiple Kiro Specs (with @kiro-spec-converter)
 
 ```
-@spec-converter convert-multi docs/[project]-prd.md
+@kiro-spec-converter convert-multi docs/[project]-prd.md
 ```
 
 **That's it!** The agent will:
@@ -60,10 +60,10 @@ Save these to `docs/[project]-prd.md` and `docs/[project]-architecture.md`
 
 Save these to `docs/[feature]-prd.md` and `docs/[feature]-architecture.md`
 
-#### Step 2: Convert to Single Kiro Spec (with @spec-converter)
+#### Step 2: Convert to Single Kiro Spec (with @kiro-spec-converter)
 
 ```
-@spec-converter convert docs/[feature]-prd.md to a Kiro spec
+@kiro-spec-converter convert docs/[feature]-prd.md to a Kiro spec
 ```
 
 **That's it!** The agent will:
@@ -82,37 +82,37 @@ Save these to `docs/[feature]-prd.md` and `docs/[feature]-architecture.md`
 
 #### Full Multi-Spec Conversion
 ```
-@spec-converter convert-multi docs/[project]-prd.md
+@kiro-spec-converter convert-multi docs/[project]-prd.md
 ```
 Analyzes BMAD docs and creates multiple specs (foundation + features) with master overview.
 
 #### Feature Analysis Only
 ```
-@spec-converter analyze-features docs/[project]-prd.md
+@kiro-spec-converter analyze-features docs/[project]-prd.md
 ```
 Shows feature breakdown, dependencies, and recommended spec structure without creating specs.
 
 #### Create Foundation Only
 ```
-@spec-converter create-foundation docs/[project]-prd.md
+@kiro-spec-converter create-foundation docs/[project]-prd.md
 ```
 Creates only the foundation/core infrastructure spec. Useful for starting with infrastructure first.
 
 #### Create Specific Feature
 ```
-@spec-converter create-feature docs/[project]-prd.md --feature "user-management"
+@kiro-spec-converter create-feature docs/[project]-prd.md --feature "user-management"
 ```
 Creates a single feature spec from the BMAD documents.
 
 #### Show Implementation Order
 ```
-@spec-converter dependency-order
+@kiro-spec-converter dependency-order
 ```
 Shows recommended implementation order based on dependencies between specs.
 
 #### Generate/Update Overview
 ```
-@spec-converter spec-overview
+@kiro-spec-converter spec-overview
 ```
 Generates or updates the master `_spec-overview.md` file with current progress.
 
@@ -120,19 +120,19 @@ Generates or updates the master `_spec-overview.md` file with current progress.
 
 #### Full Single-Spec Conversion
 ```
-@spec-converter convert docs/[feature]-prd.md to a Kiro spec
+@kiro-spec-converter convert docs/[feature]-prd.md to a Kiro spec
 ```
 The agent will guide you through the entire workflow automatically.
 
 #### Step-by-Step Conversion
 ```
-@spec-converter requirements docs/[feature]-prd.md
+@kiro-spec-converter requirements docs/[feature]-prd.md
 [Review and approve]
 
-@spec-converter design
+@kiro-spec-converter design
 [Review and approve]
 
-@spec-converter tasks
+@kiro-spec-converter tasks
 [Review and approve]
 ```
 
@@ -140,33 +140,33 @@ The agent will guide you through the entire workflow automatically.
 
 #### General Analysis
 ```
-@spec-converter analyze docs/[feature]-prd.md
+@kiro-spec-converter analyze docs/[feature]-prd.md
 ```
 Get recommendations on which features need formal specs vs BMAD cycle.
 
 #### Identify Critical Features
 ```
-@spec-converter identify-critical docs/[feature]-prd.md
+@kiro-spec-converter identify-critical docs/[feature]-prd.md
 ```
 Help identify which features need formal specs vs rapid iteration.
 
 #### Extract Properties
 ```
-@spec-converter extract-properties
+@kiro-spec-converter extract-properties
 ```
 Extract correctness properties from requirements.
 
 #### Validate Spec
 ```
-@spec-converter validate-spec [feature-name]
+@kiro-spec-converter validate-spec [feature-name]
 ```
 Validate created spec for completeness and correctness.
 
 ### Utility Commands
 
 ```
-@spec-converter help
-@spec-converter status
+@kiro-spec-converter help
+@kiro-spec-converter status
 ```
 
 ## Real Examples
@@ -177,7 +177,7 @@ This example shows how to convert a complex BMAD document with multiple features
 
 #### What You Say:
 ```
-@spec-converter convert-multi docs/ecommerce-prd.md
+@kiro-spec-converter convert-multi docs/ecommerce-prd.md
 ```
 
 #### What the Agent Does:
@@ -331,7 +331,7 @@ Ready to start with foundation?
 
 ### What You Say:
 ```
-@spec-converter convert docs/todo-list-prd.md to a Kiro spec
+@kiro-spec-converter convert docs/todo-list-prd.md to a Kiro spec
 
 Focus on:
 - Task CRUD operations
@@ -471,7 +471,7 @@ Next steps:
 
 ### Multi-Spec Conversion (Complex Projects)
 ```
-You: @spec-converter convert-multi docs/ecommerce-prd.md
+You: @kiro-spec-converter convert-multi docs/ecommerce-prd.md
 Agent: [Analyzes, identifies 5 features, shows structure]
 You: Yes, create all specs
 Agent: [Creates foundation + 4 feature specs + overview]
@@ -489,7 +489,7 @@ Agent: [Creates foundation + 4 feature specs + overview]
 
 ### Single-Spec Conversion (Simple Features)
 ```
-You: @spec-converter convert docs/todo-list-prd.md to a Kiro spec
+You: @kiro-spec-converter convert docs/todo-list-prd.md to a Kiro spec
 Agent: [Analyzes, creates requirements, asks approval]
 You: Yes
 Agent: [Creates design, asks approval]
@@ -528,7 +528,7 @@ You: Keep optional tasks
 
 **Time Cost**: High - requires manual structuring, multiple iterations, no guidance
 
-## Why Use @spec-converter?
+## Why Use @kiro-spec-converter?
 
 ### Advantages
 
@@ -585,9 +585,9 @@ Phase 1: BMAD Planning
 └── Save to docs/[project]-prd.md and docs/[project]-architecture.md
 
 Phase 2: Multi-Spec Conversion
-├── @spec-converter analyze-features docs/[project]-prd.md
+├── @kiro-spec-converter analyze-features docs/[project]-prd.md
 ├── Review feature breakdown and dependencies
-├── @spec-converter convert-multi docs/[project]-prd.md
+├── @kiro-spec-converter convert-multi docs/[project]-prd.md
 ├── Approve spec structure
 └── Review generated specs and overview
 
@@ -620,9 +620,9 @@ Phase 1: BMAD Planning
 └── Save to docs/[feature]-prd.md and docs/[feature]-architecture.md
 
 Phase 2: Single-Spec Conversion
-├── @spec-converter analyze docs/[feature]-prd.md
+├── @kiro-spec-converter analyze docs/[feature]-prd.md
 ├── Identify critical features
-├── @spec-converter convert docs/[feature]-prd.md
+├── @kiro-spec-converter convert docs/[feature]-prd.md
 └── Approve requirements → design → tasks
 
 Phase 3: Implementation
@@ -644,7 +644,7 @@ The better your BMAD PRD and Architecture, the better the conversion:
 
 Tell the agent what aspects to focus on:
 ```
-@spec-converter convert docs/[feature]-prd.md to a Kiro spec
+@kiro-spec-converter convert docs/[feature]-prd.md to a Kiro spec
 
 Focus on:
 - Data validation and integrity
@@ -672,7 +672,7 @@ Break down task 3 into smaller sub-tasks
 
 ### Agent Not Found
 ```
-Error: @spec-converter not recognized
+Error: @kiro-spec-converter not recognized
 ```
 
 **Solution**: The agent was just created. Restart Kiro or start a new chat session.
@@ -684,7 +684,7 @@ Agent: I can't find docs/[feature]-prd.md
 
 **Solution**: Provide the correct path:
 ```
-@spec-converter convert docs/my-actual-file.md to a Kiro spec
+@kiro-spec-converter convert docs/my-actual-file.md to a Kiro spec
 ```
 
 ### Conversion Too Broad
@@ -694,7 +694,7 @@ Agent: This PRD covers too many features for one spec
 
 **Solution**: Be specific about which feature to convert:
 ```
-@spec-converter convert docs/[feature]-prd.md to a Kiro spec
+@kiro-spec-converter convert docs/[feature]-prd.md to a Kiro spec
 
 Focus only on: [specific feature]
 ```
@@ -706,18 +706,18 @@ You: I want different property format
 
 **Solution**: Ask the agent to adjust:
 ```
-@spec-converter rewrite properties with more detail
-@spec-converter add more edge case properties
-@spec-converter simplify the task breakdown
+@kiro-spec-converter rewrite properties with more detail
+@kiro-spec-converter add more edge case properties
+@kiro-spec-converter simplify the task breakdown
 ```
 
 ## Summary
 
-**The @spec-converter agent is your automation for BMAD → Kiro conversion.**
+**The @kiro-spec-converter agent is your automation for BMAD → Kiro conversion.**
 
 **One command:**
 ```
-@spec-converter convert docs/[feature]-prd.md to a Kiro spec
+@kiro-spec-converter convert docs/[feature]-prd.md to a Kiro spec
 ```
 
 **Three approvals:**
@@ -733,12 +733,12 @@ No more manual conversion. No more wondering what to say. Just activate the agen
 
 If you have BMAD documents ready:
 ```
-@spec-converter analyze docs/[your-feature]-prd.md
+@kiro-spec-converter analyze docs/[your-feature]-prd.md
 ```
 
 If you want to see it in action:
 ```
-@spec-converter convert docs/todo-list-prd.md to a Kiro spec
+@kiro-spec-converter convert docs/todo-list-prd.md to a Kiro spec
 ```
 
 The agent will take care of the rest!
